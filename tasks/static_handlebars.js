@@ -467,7 +467,7 @@ module.exports = function(grunt) {
             } else {
                 path = destinationPath(f.dest,filePath,templatesPath);
                 var baseName = path.split('/').pop();
-				if(!applicationContext.preserveName || !context.preserveName){
+				if(!applicationContext.options.preserveName || !context.preserveName){
 	                //to make a static file, you will need to make "folder/index.html" to enable "folder" as a link
 	                if (baseName != 'index.html') {
 	                    path = path.replace(/[/]*([.][^/]*)?$/, '/index.html');
