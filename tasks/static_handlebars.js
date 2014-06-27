@@ -467,10 +467,13 @@ module.exports = function(grunt) {
             } else {
                 path = destinationPath(f.dest,filePath,templatesPath);
                 var baseName = path.split('/').pop();
-                //to make a static file, you will need to make "folder/index.html" to enable "folder" as a link
-                if (baseName != 'index.html') {
-                    path = path.replace(/[/]*([.][^/]*)?$/, '/index.html');
-                }
+				if(!applicationContext.preserveName || !context.preserveName){
+	                //to make a static file, you will need to make "folder/index.html" to enable "folder" as a link
+	                if (baseName != 'index.html') {
+	                    path = path.replace(/[/]*([.][^/]*)?$/, '/index.html');
+	                }
+				}
+				// otherwise, preserve the name
                 grunt.log.debug("Standard path:", path);
             }
 
